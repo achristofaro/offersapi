@@ -14,6 +14,7 @@ import br.com.api.offers.exceptionhandling.ResourceNotFoundException;
 import br.com.api.offers.model.Offer;
 import br.com.api.offers.model.vo.Links;
 import br.com.api.offers.model.vo.OfferResponse;
+import br.com.api.offers.repository.IOfferService;
 import br.com.api.offers.model.vo.OfferQty;
 
 @Service

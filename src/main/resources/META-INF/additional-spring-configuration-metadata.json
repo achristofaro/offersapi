@@ -1,0 +1,25 @@
+{"properties":
+    [
+        {
+            "name": "app.name",
+            "type": "java.lang.String",
+            "description": "Fully qualified application name."
+        },
+        {
+            "name": "api.name",
+            "type": "java.lang.String",
+            "description": "Fully qualified API name."
+        },
+        {
+            "name": "api.version",
+            "type": "java.lang.String",
+            "description": "Fully qualified major application version."
+        },
+        {
+            "name": "api.basepath",
+            "type": "java.lang.String",
+            "description": "Fully qualified root URL path for API.",
+            "defaultValue": "/"
+        }
+    ]
+}

@@ -12,7 +12,7 @@
 
 	<groupId>br.com.api.offers</groupId>
 	<artifactId>offersapi</artifactId>
-	<version>1.0.4</version>
+	<version>1.0.5</version>
 	<name>offersapi</name>
 	<description>Offers API project</description>
 

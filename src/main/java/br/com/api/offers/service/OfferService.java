@@ -61,6 +61,7 @@ public class OfferService implements IOfferService {
                                             (rs, rowNum) ->
                                                 new Offer (
                                                         rs.getLong("offerId"),
+                                                        rs.getLong("seqNumber"),
                                                         rs.getString("accountName"),
                                                         rs.getString("cpf"), 
                                                         rs.getString("firstName"), 
@@ -94,6 +95,7 @@ public class OfferService implements IOfferService {
                                                             (rs, rowNum) ->                                    
                                                                 new Offer (
                                                                         rs.getLong("offerId"),
+                                                                        rs.getLong("seqNumber"),
                                                                         rs.getString("accountName"),
                                                                         rs.getString("cpf"), 
                                                                         rs.getString("firstName"), 

@@ -6,8 +6,8 @@ import lombok.Data;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-@Builder(builderMethodName = "Builder")
 @JsonInclude(value = Include.NON_EMPTY)
+@Builder(builderMethodName = "Builder")
 @Data
 public class Links {
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -12,7 +13,7 @@
 
 	<groupId>br.com.api.offers</groupId>
 	<artifactId>offersapi</artifactId>
-	<version>1.0.5</version>
+	<version>1.0.7</version>
 	<name>offersapi</name>
 	<description>Offers API project</description>
 
@@ -32,6 +33,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<majorVersion>${project.artifact.selectedVersion.majorVersion}</majorVersion>
 		<java.version>11</java.version>
 		<azure.version>2.2.4</azure.version>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
@@ -124,79 +126,4 @@
             </plugin>
 		</plugins>
 	</build>
-
-	<profiles>
-		<profile>
-		<id>incrementVersion</id>
-		<build>
-			<plugins>
-				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>build-helper-maven-plugin</artifactId>
-					<version>3.0.0</version>
-					<executions>
-					<execution>
-						<id>parse-version</id>
-						<phase>validate</phase>
-						<goals>
-						<goal>parse-version</goal>
-						</goals>
-					</execution>
-					</executions>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-antrun-plugin</artifactId>
-					<version>1.1</version>
-					<executions>
-					<execution>
-						<id>run</id>
-						<phase>validate</phase>
-						<goals>
-						<goal>run</goal>
-						</goals>
-						<configuration>
-						<tasks>
-							<echo>Major: ${parsedVersion.majorVersion}</echo>
-							<echo>Minor: ${parsedVersion.minorVersion}</echo>
-							<echo>Incremental: ${parsedVersion.incrementalVersion}</echo>
-							<echo>Qualifier: ${parsedVersion.qualifier}</echo>
-							<echo>BuildNumber: ${parsedVersion.buildNumber}</echo>
-							<echo>nextMajorVersion: ${parsedVersion.nextMajorVersion}</echo>
-							<echo>nextMinorVersion: ${parsedVersion.nextMinorVersion}</echo>
-							<echo>nextIncrementalVersion: ${parsedVersion.nextIncrementalVersion}</echo>
-						</tasks>
-						</configuration>
-					</execution>
-					</executions>
-				</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>versions-maven-plugin</artifactId>
-				<version>2.5</version>
-				<executions>
-				<execution>
-					<id>set</id>
-					<phase>validate</phase>
-					<goals>
-					<goal>set</goal>
-					</goals>
-					<configuration>
-					<newVersion>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.nextIncrementalVersion}</newVersion>
-					</configuration>
-				</execution>
-				<execution>
-					<id>commit</id>
-					<phase>validate</phase>
-					<goals>
-					<goal>commit</goal>
-					</goals>
-				</execution>
-				</executions>
-			</plugin>
-			</plugins>
-		</build>
-	</profile>
-  </profiles>
-
 </project>

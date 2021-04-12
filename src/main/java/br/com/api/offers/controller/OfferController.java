@@ -35,7 +35,7 @@ public class OfferController {
                 ,params = {"txdate"})
     public ResponseEntity<?> getOffersQty(@RequestParam(value = "txdate", required = true) @DateTimeFormat(pattern = "yyyy-MM-dd") Date txdate,
                                             @RequestHeader(value = "x-api-minor-version", required = true) Integer minorversion) {
-
+       
         return ResponseEntity.ok().header("x-api-version", String.format("v1.%s.0", minorversion)).body(offerService.getRecordCount(txdate));
     }
 
@@ -58,7 +58,7 @@ public class OfferController {
                                         @RequestParam(value = "txdate", required = true) @DateTimeFormat(pattern = "yyyy-MM-dd") Date date,
                                         @RequestHeader(value = "x-api-minor-version", required = true) Integer minorversion) {
 
-        return ResponseEntity.ok().header("x-api-version", String.format("v1.%s.0", minorversion)).body(offerService.getById(cpf, date));
+        return ResponseEntity.ok().header("x-api-version", String.format("v1.%s.0", minorversion)).body(offerService.getByCpf(cpf, date));
     }
     
 }

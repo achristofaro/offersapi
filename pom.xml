@@ -7,13 +7,13 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.3.9.RELEASE</version>
+		<version>2.3.10.RELEASE</version>
 		<relativePath/>
 	</parent>
 
 	<groupId>br.com.api.offers</groupId>
 	<artifactId>offersapi</artifactId>
-	<version>1.0.7</version>
+	<version>1.0.8</version>
 	<name>offersapi</name>
 	<description>Offers API project</description>
 
@@ -33,7 +33,6 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<majorVersion>${project.artifact.selectedVersion.majorVersion}</majorVersion>
 		<java.version>11</java.version>
 		<azure.version>2.2.4</azure.version>
 		<maven.compiler.source>${java.version}</maven.compiler.source>

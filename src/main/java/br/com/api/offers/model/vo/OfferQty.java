@@ -7,5 +7,5 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class OfferQty {
-    private long qty;
+    private long quantity;
 }

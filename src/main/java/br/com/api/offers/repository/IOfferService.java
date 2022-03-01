@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import br.com.api.offers.model.vo.OfferResponse;
+import br.com.api.offers.model.vo.Pagination;
 
 @Repository
 public interface IOfferService {
@@ -13,6 +14,6 @@ public interface IOfferService {
 
     OfferResponse<?> getByCpf(String cpf, Date date);
     
-    OfferResponse<?> getByDate(Date date, List<String> cpfs);
+    OfferResponse<?> getByDate(Date date, List<String> cpfs, Pagination pagination);
 
 }

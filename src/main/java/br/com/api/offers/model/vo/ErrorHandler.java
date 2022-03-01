@@ -7,10 +7,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Builder;
 import lombok.Data;
 
-
 @Builder(builderMethodName = "Builder")
 @Data
-public class ExceptionError {
+public class ErrorHandler {
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
 	private LocalDateTime timestamp;

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.api.offers.model.vo.Pagination;
 import br.com.api.offers.service.OfferService;
 
 @CrossOrigin
@@ -33,21 +34,21 @@ public class OfferController {
                 ,consumes = MediaType.APPLICATION_JSON_VALUE
                 ,produces = MediaType.APPLICATION_JSON_VALUE
                 ,params = {"txdate"})
-    public ResponseEntity<?> getOffersQty(@RequestParam(value = "txdate", required = true) @DateTimeFormat(pattern = "yyyy-MM-dd") Date txdate,
-                                            @RequestHeader(value = "x-api-minor-version", required = true) Integer minorversion) {
+    public ResponseEntity<?> getOffersQty(@RequestParam(value = "txdate", required = true) @DateTimeFormat(pattern = "yyyy-MM-dd") Date txdate) {
        
-        return ResponseEntity.ok().header("x-api-version", String.format("v1.%s.0", minorversion)).body(offerService.getRecordCount(txdate));
+        return ResponseEntity.ok().body(offerService.getRecordCount(txdate));
     }
 
     @GetMapping(value = "/offers"
                 ,consumes = MediaType.APPLICATION_JSON_VALUE 
                 ,produces = MediaType.APPLICATION_JSON_VALUE
                 ,params = {"txdate"})
-    public ResponseEntity<?> getOffersByDate(@RequestParam(value = "txdate", required = true) @DateTimeFormat(pattern = "yyyy-MM-dd") Date date, 
-                                        @RequestHeader(value = "cpf", required = false) List<String> cpf,
-                                        @RequestHeader(value = "x-api-minor-version", required = true) Integer minorversion) {
+    public ResponseEntity<?> getOffersByDate(@RequestParam(value = "txdate", required = true) @DateTimeFormat(pattern = "yyyy-MM-dd") Date date,
+                                        @RequestParam(value = "page", required = false) Long page,
+                                        @RequestParam(value = "page-size", required = false, defaultValue = "200") Long size,  
+                                        @RequestHeader(value = "cpf", required = false) List<String> cpf) {
 
-        return ResponseEntity.ok().header("x-api-version", String.format("v1.%s.0", minorversion)).body(offerService.getByDate(date, cpf));
+        return ResponseEntity.ok().body(offerService.getByDate(date, cpf, Pagination.Builder().size(size).build()));
     }
 
     @GetMapping(value = "/offers/{cpf}"
@@ -55,10 +56,9 @@ public class OfferController {
                 ,produces = MediaType.APPLICATION_JSON_VALUE
                 ,params="txdate")
     public ResponseEntity<?> getOffersByCpf(@PathVariable(value = "cpf", required = true) @Size(min = 11, max = 11) String cpf,
-                                        @RequestParam(value = "txdate", required = true) @DateTimeFormat(pattern = "yyyy-MM-dd") Date date,
-                                        @RequestHeader(value = "x-api-minor-version", required = true) Integer minorversion) {
+                                        @RequestParam(value = "txdate", required = true) @DateTimeFormat(pattern = "yyyy-MM-dd") Date date) {
 
-        return ResponseEntity.ok().header("x-api-version", String.format("v1.%s.0", minorversion)).body(offerService.getByCpf(cpf, date));
+        return ResponseEntity.ok().body(offerService.getByCpf(cpf, date));
     }
-    
+
 }

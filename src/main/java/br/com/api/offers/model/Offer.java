@@ -12,7 +12,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor 
-public class Offer {
+public class Offer{
 
     @Id         private final Long offerId;
     @JsonIgnore private Long seqNumber;
@@ -22,4 +22,5 @@ public class Offer {
     @NonNull    private String lastName;
     @NonNull    private Date txDate;
     @NonNull    private BigDecimal positionPrice;
+    
 }

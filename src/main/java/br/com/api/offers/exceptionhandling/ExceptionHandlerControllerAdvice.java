@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import br.com.api.offers.model.vo.ExceptionError;
+import br.com.api.offers.model.vo.ErrorHandler;
 
 @ControllerAdvice
 public class ExceptionHandlerControllerAdvice extends ResponseEntityExceptionHandler {
@@ -22,7 +22,7 @@ public class ExceptionHandlerControllerAdvice extends ResponseEntityExceptionHan
 
 
         
-        ExceptionError exError = ExceptionError.Builder()
+        ErrorHandler exError = ErrorHandler.Builder()
             .timestamp(LocalDateTime.now())
             .status(HttpStatus.NOT_FOUND.value())
             .error(HttpStatus.NOT_FOUND.getReasonPhrase())
@@ -40,7 +40,7 @@ public class ExceptionHandlerControllerAdvice extends ResponseEntityExceptionHan
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ResponseEntity<Object> handleException(Exception ex, HttpServletRequest req) {
         
-        ExceptionError exError = ExceptionError.Builder()
+        ErrorHandler exError = ErrorHandler.Builder()
             .timestamp(LocalDateTime.now())
             .status(HttpStatus.NOT_FOUND.value())
             .error(HttpStatus.NOT_FOUND.getReasonPhrase())

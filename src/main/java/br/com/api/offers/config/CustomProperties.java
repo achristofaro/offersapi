@@ -31,7 +31,7 @@ public class CustomProperties {
     @Value("${msg.no_data_found_date}")
     private String nodatafoundDate;
 
-    @Value("${msg.no_data_found_date_id}")
-    private String nodatafoundDateId;
+    @Value("${msg.no_data_found_date_cpf}")
+    private String nodatafoundDateCpf;
 
 }

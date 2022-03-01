@@ -9,12 +9,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 @JsonInclude(value = Include.NON_EMPTY)
 @Builder(builderMethodName = "Builder")
 @Data
-public class Links {
+public class Meta {
 
-    @NonNull private String self;
-             private String first;
-             private String prev;
-             private String next;
-             private String last;
+    @NonNull private Long totalRecords;
+             private Long totalPages;
 
 }
